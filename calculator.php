@@ -6,8 +6,8 @@
     <body>
 
         <form action="calculator.php" method="get">
-            <input type="number" name = x>
-            <input type="number" name = y>
+            <input type="number" name = x placeholder = "x">
+            <input type="number" name = y placeholder = "y">
 
             <select name = operation>
                 <option>+</option>
@@ -64,6 +64,42 @@
             } 
             */
 
+            //If submit button has been pressed call apropriate function
+            if(isset($_GET['submit'])){
+                $operation = $_GET['operation'];
+                switch($operation){
+                    case "+":
+                        add();
+                        break;
+                    case "-":
+                        sub();
+                        break;
+                    case "*":
+                        multiply();
+                        break;
+                    case "/":
+                        divide();
+                        break;
+                    case "x^y":
+                        power();
+                        break;
+                    case "1/x":
+                        invert();
+                        break;
+                    case "x^2":
+                        square();
+                        break;
+                    case "√x":
+                        squareRoot();
+                        break;
+                }
+
+            }
+
+
+
+
+
             function add() {
                 $RESULT = $_GET["x"] + $_GET["y"];
                 #print somehow
@@ -73,36 +109,43 @@
             function sub() {
                 $RESULT = $_GET["x"] - $_GET["y"];
                 #print somehow
+                echo $RESULT;
             }
 
             function multiply() {
                 $RESULT = $_GET["x"] * $_GET["y"];
                 #print somehow
+                echo $RESULT;
             }
 
             function divide() {
                 $RESULT = $_GET["x"] / $_GET["y"];
                 #print somehow
+                echo $RESULT;
             }
 
             function power() {
                 $RESULT = pow($_GET["x"], $_GET["y"]);
                 #print somehow
+                echo $RESULT;
             }
 
             function invert() {
-                $RESULT = $_GET["x"] / 1;
+                $RESULT = 1 / $_GET["x"];
                 #print somehow
+                echo $RESULT;
             }
 
             function square() { #SUPPOSED TO BE HANDLED BY POWER
                 $RESULT = pow($_GET["x"], 2);
                 #print somehow
+                echo $RESULT;
             }
 
             function squareRoot() {
                 $RESULT = sqrt($_GET["x"]);
                 #print somehow
+                echo $RESULT;
             }
         
         ?>
