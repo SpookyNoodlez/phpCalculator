@@ -21,6 +21,8 @@
             </select>
 
             <button type = "submit" name = "submit" value = "submit" >Calculate</button>
+            <br>
+            Result:
 
 
             <!--
@@ -69,7 +71,9 @@
                 $operation = $_GET['operation'];
                 switch($operation){
                     case "+":
-                        add();
+                        if(validate($operation)){
+                            add();
+                        }
                         break;
                     case "-":
                         sub();
@@ -93,10 +97,16 @@
                         squareRoot();
                         break;
                 }
-
             }
 
+            function validate($operation){
+                if($_GET["x"] == NULL){
+                    echo "x can not be empty";
+                    return false;
+                }
 
+                return true;
+            }
 
 
 
