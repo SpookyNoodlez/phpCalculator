@@ -8,6 +8,22 @@
         <form action="calculator.php" method="get">
             <input type="number" name = x>
             <input type="number" name = y>
+
+            <select name = operation>
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+                <option>x^y</option>
+                <option>1/x</option>
+                <option>x^2</option>
+                <option>√x</option>
+            </select>
+
+            <button type = "submit" name = "submit" value = "submit" >Calculate</button>
+
+
+            <!--
             <input type="submit" name="add" value = "+">
             <input type="submit" name="sub" value = "-">
             <input type="submit" name="mul" value = "*">
@@ -16,11 +32,12 @@
             <input type="submit" name="invert" value = "1/x">
             <input type="submit" name="square" value = "x^2">
             <input type="submit" name="squareRoot" value = "√x">
-
+            -->
         </form>
 
 
         <?php
+            /*
             if(array_key_exists('add', $_POST)) { 
                 add(); 
             }
@@ -45,11 +62,12 @@
             if(array_key_exists('squareRoot', $_POST)) { 
                 squareRoot(); 
             } 
-
+            */
 
             function add() {
                 $RESULT = $_GET["x"] + $_GET["y"];
                 #print somehow
+                echo $RESULT;
             }
         
             function sub() {
