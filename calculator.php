@@ -83,6 +83,8 @@
                             squareRoot();
                         }
                         break;
+                    default:
+                        echo "Operation not recognised";
                 }
             }
 
