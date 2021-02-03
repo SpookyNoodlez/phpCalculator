@@ -71,40 +71,74 @@
                 $operation = $_GET['operation'];
                 switch($operation){
                     case "+":
-                        if(validate($operation)){
+                        if(validate("$operation")){
                             add();
                         }
                         break;
                     case "-":
-                        sub();
+                        if(validate("$operation")){
+                            sub();
+                        }
                         break;
                     case "*":
-                        multiply();
+                        if(validate("$operation")){
+                            multiply();
+                        }
                         break;
                     case "/":
-                        divide();
+                        if(validate("$operation")){
+                            divide();
+                        }
                         break;
                     case "x^y":
-                        power();
+                        if(validate("$operation")){
+                            power();
+                        }
                         break;
                     case "1/x":
-                        invert();
+                        if(validate("$operation")){
+                            invert();
+                        }
                         break;
                     case "x^2":
-                        square();
+                        if(validate("$operation")){
+                            square();
+                        }
                         break;
                     case "√x":
-                        squareRoot();
+                        if(validate("$operation")){
+                            squareRoot();
+                        }
                         break;
                 }
             }
 
-            function validate($operation){
+            function validate($operator){
                 if($_GET["x"] == NULL){
                     echo "x can not be empty";
                     return false;
                 }
 
+                switch($operator){
+                    case "+":
+                    case "-":
+                    case "*":
+                        if($_GET["y"] == NULL){
+                            echo "y can not be empty";
+                            return false;
+                        }
+                    case "/":
+                        if($_GET["y"] == NULL){
+                            echo "y can not be empty";
+                            return false;
+                        }
+                        if($_GET["y"] == 0){
+                            echo "Can not divide by 0";
+                        }
+                }
+
+
+                
                 return true;
             }
 
