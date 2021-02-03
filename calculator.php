@@ -114,9 +114,11 @@
             }
 
             function validate($operator){
+                $valid = true;
+
                 if($_GET["x"] == NULL){
-                    echo "x can not be empty";
-                    return false;
+                    echo " -x can not be empty- ";
+                    $valid = false;
                 }
 
                 switch($operator){
@@ -124,22 +126,21 @@
                     case "-":
                     case "*":
                         if($_GET["y"] == NULL){
-                            echo "y can not be empty";
-                            return false;
+                            echo " -y can not be empty- ";
+                            $valid = false;
                         }
                     case "/":
                         if($_GET["y"] == NULL){
-                            echo "y can not be empty";
-                            return false;
+                            echo " -y can not be empty- ";
+                            $valid = false;
                         }
                         if($_GET["y"] == 0){
-                            echo "Can not divide by 0";
+                            echo " -Can not divide by 0- ";
+                            $valid = false;
                         }
                 }
 
-
-                
-                return true;
+                return $valid;
             }
 
 
