@@ -103,7 +103,7 @@
                     $valid = false;
                 }*/
 
-                switch($operator){ //ALLT i switch casen körs. VARFÖR?
+                switch($operator){
                     case "+":
                     case "-":
                     case "*":
