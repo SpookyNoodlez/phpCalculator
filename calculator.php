@@ -44,42 +44,42 @@
                 $operation = $_GET['operation'];
                 switch($operation){
                     case "+":
-                        if(validate("$operation")){
+                        if(validate($operation)){
                             add();
                         }
                         break;
                     case "-":
-                        if(validate("$operation")){
+                        if(validate($operation)){
                             sub();
                         }
                         break;
                     case "*":
-                        if(validate("$operation")){
+                        if(validate($operation)){
                             multiply();
                         }
                         break;
                     case "/":
-                        if(validate("$operation")){
+                        if(validate($operation)){
                             divide();
                         }
                         break;
                     case "x^y":
-                        if(validate("$operation")){
+                        if(validate($operation)){
                             power(false);
                         }
                         break;
                     case "1/x":
-                        if(validate("$operation")){
+                        if(validate($operation)){
                             invert();
                         }
                         break;
                     case "x^2":
-                        if(validate("$operation")){
+                        if(validate($operation)){
                             power(true);
                         }
                         break;
                     case "√x":
-                        if(validate("$operation")){
+                        if(validate($operation)){
                             squareRoot();
                         }
                         break;
@@ -95,6 +95,13 @@
                     echo " -x can not be empty- ";
                     $valid = false;
                 }
+
+                //echo gettype($_GET["x"]);
+                /*
+                if(gettype($_GET["x"]) != "integer" || gettype($_GET["x"]) != "double"){
+                    echo " -x must be a number- ";
+                    $valid = false;
+                }*/
 
                 switch($operator){ //ALLT i switch casen körs. VARFÖR?
                     case "+":
