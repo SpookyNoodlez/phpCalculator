@@ -121,7 +121,7 @@
                     $valid = false;
                 }
 
-                switch($operator){
+                switch($operator){ //ALLT i switch casen körs. VARFÖR?
                     case "+":
                     case "-":
                     case "*":
@@ -129,6 +129,7 @@
                             echo " -y can not be empty- ";
                             $valid = false;
                         }
+                        break;
                     case "/":
                         if($_GET["y"] == NULL){
                             echo " -y can not be empty- ";
@@ -138,6 +139,19 @@
                             echo " -Can not divide by 0- ";
                             $valid = false;
                         }
+                        break;
+                    case "1/x":
+                        if($_GET["x"] == 0){
+                            echo " -Can not divide by 0- ";
+                            $valid = false;
+                        }
+                        break;
+                    case "√x":
+                        if($_GET["x"] < 0){
+                            echo " -x must be non-negative, imaginary numbers not supported- ";
+                            $valid = false;
+                        }
+                        break;
                 }
 
                 return $valid;
