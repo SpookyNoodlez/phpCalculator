@@ -44,7 +44,7 @@
             error_reporting(E_ALL);
 
             //If submit button has been pressed call appropriate function
-            if(isset($_GET['submit'])){
+            if(isset($_GET['submit']) && isset($_GET['x']) && isset($_GET['y']) && isset($_GET['operation'])){
                 $operation = $_GET['operation'];
                 if(validate($operation)){
                     switch($operation){
@@ -81,7 +81,7 @@
             function validate($operator){
                 $valid = true;
 
-                if($_GET["x"] == NULL){
+                if(empty($_GET["x"])){
                     echo " -x can not be empty- ";
                     $valid = false;
                 }
@@ -97,13 +97,13 @@
                     case "+":
                     case "-":
                     case "*":
-                        if($_GET["y"] == NULL){
+                        if(empty($_GET["y"])){
                             echo " -y can not be empty- ";
                             $valid = false;
                         }
                         break;
                     case "/":
-                        if($_GET["y"] == NULL){
+                        if(empty($_GET["y"])){
                             echo " -y can not be empty- ";
                             $valid = false;
                         }
