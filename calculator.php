@@ -39,52 +39,42 @@
 
 
         <?php
+            //Enable all error messages
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL);
+
             //If submit button has been pressed call appropriate function
             if(isset($_GET['submit'])){
                 $operation = $_GET['operation'];
-                switch($operation){
-                    case "+":
-                        if(validate($operation)){
-                            add();
-                        }
-                        break;
-                    case "-":
-                        if(validate($operation)){
-                            sub();
-                        }
-                        break;
-                    case "*":
-                        if(validate($operation)){
-                            multiply();
-                        }
-                        break;
-                    case "/":
-                        if(validate($operation)){
-                            divide();
-                        }
-                        break;
-                    case "x^y":
-                        if(validate($operation)){
-                            power(false);
-                        }
-                        break;
-                    case "1/x":
-                        if(validate($operation)){
-                            invert();
-                        }
-                        break;
-                    case "x^2":
-                        if(validate($operation)){
-                            power(true);
-                        }
-                        break;
-                    case "√x":
-                        if(validate($operation)){
-                            squareRoot();
-                        }
-                        break;
-                    default:
-                        echo "Operation not recognised";
+                if(validate($operation)){
+                    switch($operation){
+                        case "+":
+                                add();
+                            break;
+                        case "-":
+                                sub();
+                            break;
+                        case "*":
+                                multiply();
+                            break;
+                        case "/":
+                                divide();
+                            break;
+                        case "x^y":
+                                power(false);
+                            break;
+                        case "1/x":
+                                invert();
+                            break;
+                        case "x^2":
+                                power(true);
+                            break;
+                        case "√x":
+                                squareRoot();
+                            break;
+                        default:
+                            echo "Operation not recognised";
+                    }
                 }
             }
 
@@ -135,7 +125,6 @@
                         }
                         break;
                 }
-
                 return $valid;
             }
 
@@ -161,7 +150,7 @@
                 echo $RESULT;
             }
 
-            function power($square) { //pass ""true" to square
+            function power($square) { //pass "true" to square
                 $yLocal = 2;
                 if($square == false){
                     $yLocal = $_GET["y"];
